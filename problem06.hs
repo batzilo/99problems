@@ -1,5 +1,5 @@
 {-
-    Problem 6
+    Problem 06
     
     Find out whether a list is a palindrome. A palindrome can be read forward or backward; e.g. (x a m a x).
     
@@ -13,8 +13,8 @@
     True
 -}
 
-same :: Eq a => [a] -> Bool
-same l = head l == last l
+sameEndpoints :: Eq a => [a] -> Bool
+sameEndpoints l = head l == last l
 
 guts :: [a] -> [a]
 guts = init . tail
@@ -22,4 +22,4 @@ guts = init . tail
 isPalindrome :: Eq a => [a] -> Bool
 isPalindrome [] = True
 isPalindrome [x] = True
-isPalindrome l = same l && isPalindrome (guts l)
+isPalindrome l = sameEndpoints l && isPalindrome (guts l)
